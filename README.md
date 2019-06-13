@@ -14,7 +14,9 @@ some BLE aspects are still experimental. You will need to add the
     sudo nano /etc/systemd/system/dbus-org.bluez.service
 and add the '-E' flag at the end of the 'ExecStart' line. It should
 look like this:
+
     ExecStart=/usr/lib/bluetooth/bluetoothd -E
+
 Save the file and reboot.
 
 Installation 
