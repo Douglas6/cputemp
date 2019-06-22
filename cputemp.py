@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Copyright (c) 2015, Douglas Otwell
+"""Copyright (c) 2019, Douglas Otwell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -41,6 +41,7 @@ class ThermometerService(Service):
 
     def __init__(self, index):
         self.farenheit = True
+
         Service.__init__(self, index, self.THERMOMETER_SVC_UUID, True)
         self.add_characteristic(TempCharacteristic(self))
         self.add_characteristic(UnitCharacteristic(self))
@@ -56,6 +57,7 @@ class TempCharacteristic(Characteristic):
 
     def __init__(self, service):
         self.notifying = False
+
         Characteristic.__init__(
                 self, self.TEMP_CHARACTERISTIC_UUID,
                 ["notify", "read"], service)
@@ -74,8 +76,6 @@ class TempCharacteristic(Characteristic):
         strtemp = str(round(temp, 1)) + " " + unit
         for c in strtemp:
             value.append(dbus.Byte(c.encode()))
-
-#        print("Changing temperature: {} degrees".format(strtemp))
 
         return value
 
@@ -106,7 +106,7 @@ class TempCharacteristic(Characteristic):
 
 class TempDescriptor(Descriptor):
     TEMP_DESCRIPTOR_UUID = "2901"
-    TEMP_DESCRIPTOR = "CPU Temperature"
+    TEMP_DESCRIPTOR_VALUE = "CPU Temperature"
 
     def __init__(self, characteristic):
         Descriptor.__init__(
@@ -116,7 +116,7 @@ class TempDescriptor(Descriptor):
 
     def ReadValue(self, options):
         value = []
-        desc = self.TEMP_DESCRIPTOR
+        desc = self.TEMP_DESCRIPTOR_VALUE
 
         for c in desc:
             value.append(dbus.Byte(c.encode()))
@@ -150,7 +150,7 @@ class UnitCharacteristic(Characteristic):
 
 class UnitDescriptor(Descriptor):
     UNIT_DESCRIPTOR_UUID = "2901"
-    UNIT_DESCRIPTOR = "Temperature Units (F or C)"
+    UNIT_DESCRIPTOR_VALUE = "Temperature Units (F or C)"
 
     def __init__(self, characteristic):
         Descriptor.__init__(
@@ -160,7 +160,7 @@ class UnitDescriptor(Descriptor):
 
     def ReadValue(self, options):
         value = []
-        desc = self.UNIT_DESCRIPTOR
+        desc = self.UNIT_DESCRIPTOR_VALUE
 
         for c in desc:
             value.append(dbus.Byte(c.encode()))
