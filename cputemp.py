@@ -178,4 +178,3 @@ try:
     app.run()
 except KeyboardInterrupt:
     app.quit()
-    print("\nGATT application terminated")
