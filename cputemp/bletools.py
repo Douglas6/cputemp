@@ -54,6 +54,6 @@ class BleTools(object):
     def power_adapter(self):
         adapter = self.get_adapter()
 
-        adapter_props = dbus.Interface(bus.get_object(BLUEZ_SERVICE_NAME, adapter),
+        adapter_props = dbus.Interface(dbus.get_object(BLUEZ_SERVICE_NAME, adapter),
                                        "org.freedesktop.DBus.Properties")
         adapter_props.Set("org.bluez.Adapter1", "Powered", dbus.Boolean(1))
