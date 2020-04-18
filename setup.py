@@ -20,6 +20,6 @@ setuptools.setup(
     ],
     install_requires=[
         'dbus-python',
-        'bletools'
+        'gpiozero'
     ]
 )
