@@ -8,16 +8,9 @@ Distributed under the MIT license http://opensource.org/licenses/MIT
 
 Prerequisites
 -------------
-As of BlueZ version 5.43 (currently shipped with Raspbian Stretch),
-some BLE aspects are still experimental. You will need to add the
-'Experimental' flag to the bluetooth daemon. Do this:
-    sudo nano /etc/systemd/system/dbus-org.bluez.service
-and add the '-E' flag at the end of the 'ExecStart' line. It should
-look like this:
-
-    ExecStart=/usr/lib/bluetooth/bluetoothd -E
-
-Save the file and reboot.
+As of BlueZ version 5.51 (currently shipped with Raspbian Buser) there 
+is no need to change any thing with Bluez daemon. 
+Howe
 
 Installation 
 ------------
