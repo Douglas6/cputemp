@@ -9,8 +9,7 @@ Distributed under the MIT license http://opensource.org/licenses/MIT
 Prerequisites
 -------------
 As of BlueZ version 5.50 (currently shipped with Raspbian Buser) there 
-is no need to change any thing with Bluez daemon. 
-Howe
+is no need to enable experimental flag for bluetoothd. 
 
 Installation 
 ------------
