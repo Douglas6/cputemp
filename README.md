@@ -19,6 +19,14 @@ look like this:
 
 Save the file and reboot.
 
+## Dependencies
+
+Install `dbus` module:
+```
+sudo apt-get install python3-dbus
+```
+
+
 Installation 
 ------------
     git clone https://github.com/douglas6/cputemp.git
